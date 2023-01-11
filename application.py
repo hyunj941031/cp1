@@ -110,10 +110,16 @@ def result():
     test_loss = -np.sum(real * np.log(pred + delta)).round(3)
     
     os.remove('static/data/1.csv')
-    return f"""
-    [Epoch 1] TrainData - Loss = {train_loss}, Accuracy = {train_accuracy}
-              TestData  - Loss = {test_loss},  Accuracy = {test_accuracy}
-    """
+    return f'''
+    <html>
+    <head>
+    </head>
+    <body>
+        <pre>[Epoch 1] TrainData -> Loss = {train_loss}, Accuracy = {train_accuracy}
+          TestData  -> Loss = {test_loss}, Accuracy = {test_accuracy}</pre>
+    </body>
+    </html>
+    '''
 
 if __name__ == "__main__":
     application.run(host='0.0.0.0')
